@@ -3,7 +3,7 @@ import { ListByTagService } from "../../services/task/ListByTagService";
 
 class ListByTagController{
     async handle(req: Request, res: Response) {
-        const tag_id = req.query.tag_id as String;
+        const tag_id = req.query.tag_id as string;
 
         const listByTag = new ListByTagService();
 
