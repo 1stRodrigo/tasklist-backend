@@ -1,7 +1,7 @@
 import prismaClient from "../../prisma";
 
 interface TagRequest{
-    tag_id: String;
+    tag_id: string;
 }
 
 class ListByTagService {
