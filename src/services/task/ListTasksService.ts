@@ -5,6 +5,9 @@ class ListTasksService {
         const tasks = prismaClient.task.findMany({
             orderBy: {
                 created_at: "desc"
+            },
+            include: {
+                tags: true,
             }
         })
 
