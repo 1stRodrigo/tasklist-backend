@@ -15,13 +15,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ListTasksService = void 0;
 const prisma_1 = __importDefault(require("../../prisma"));
 class ListTasksService {
-    execute() {
+    execute(user_id) {
         return __awaiter(this, void 0, void 0, function* () {
-            const tasks = prisma_1.default.task.findMany({
+            const tasks = yield prisma_1.default.task.findMany({
+                where: {
+                    authorId: user_id
+                },
                 orderBy: {
                     created_at: "desc"
+                },
+                include: {
+                    tags: {
+                        include: {
+                            tag: true
+                        }
+                    }
                 }
             });
+            console.log("Dados retornados do Prisma: ", tasks);
+            console.dir(tasks, { depth: null });
             return tasks;
         });
     }

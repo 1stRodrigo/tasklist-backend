@@ -15,7 +15,8 @@ class ListTasksController {
     handle(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const listTasksService = new ListTasksService_1.ListTasksService;
-            const tasks = yield listTasksService.execute();
+            const user_id = req.user_id;
+            const tasks = yield listTasksService.execute(user_id);
             return res.json(tasks);
         });
     }
