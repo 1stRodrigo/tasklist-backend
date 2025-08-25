@@ -68,7 +68,6 @@ class CreateTaskService {
             }
         })
 
-
         return taskWithTag
     }
 }
